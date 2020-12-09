@@ -1,0 +1,13 @@
+global_costmap:
+  global_frame: /map
+  robot_base_frame: /robot1_base
+  track_unknown_space: true
+  static_map: true
+  rolling_window: false
+  track_unknown_space: true
+  update_frequency: 1.0
+  publish_frequency: 0.5
+  transform_tolerance: 50.0
+
+  plugins:
+    - {name: static,                  type: "costmap_2d::StaticLayer"}

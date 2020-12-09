@@ -1,0 +1,21 @@
+<launch>
+  <!-- <include file="$(find amcl)/examples/amcl_diff.launch" /> -->
+
+ <node pkg="move_base" type="move_base" respawn="false" name="move_base_1" output="screen">
+    <rosparam file="$(find triton_nav)/params/r1_costmap_common_params.yaml" command="load" ns="global_costmap" /> 
+      <param name="global_costmap/scan/sensor_frame" type="str" value="robot1_base"/>
+      <param name="global_costmap/scan/topic" type="str" value="/robot1/scan"/>
+    <rosparam file="$(find triton_nav)/params/r1_costmap_common_params.yaml" command="load" ns="local_costmap" />
+      <param name="local_costmap/scan/sensor_frame" type="str" value="robot1_base"/>
+      <param name="local_costmap/scan/topic" type="str" value="/robot1/scan"/>
+    <rosparam file="$(find triton_nav)/params/r1_local_costmap_params.yaml" command="load" />
+      <param name="local_costmap/global_frame" type="str" value="map"/>
+      <param name="local_costmap/robot_base_frame" type="str" value="robot1_odom"/>
+    <rosparam file="$(find triton_nav)/params/r1_global_costmap_params.yaml" command="load" /> 
+      <param name="global_costmap/global_frame" type="str" value="map" />
+      <param name="global_costmap/robot_base_frame" type="str" value="robot1_base"/>
+    <rosparam file="$(find triton_nav)/params/base_local_planner_params.yaml" command="load" />
+
+   
+ </node>
+ </launch>
